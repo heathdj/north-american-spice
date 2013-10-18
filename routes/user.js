@@ -58,7 +58,7 @@ exports.logout = function(req, res) {
 
 exports.getsignup = function(req, res) {
     res.render('signup', {
-    	title: 'HCPM LLC.'
+    	title: 'VFD',
     	user: req.user, 
     	message: req.flash('info')
     });
