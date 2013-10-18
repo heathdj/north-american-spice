@@ -1,0 +1,24 @@
+extends menu
+
+block content
+  div.container
+    script(src='/public/zxcvbn/zxcvbn-async.js')
+    form.form-signup(action='/signup' method='post')
+        if message !== 'undefined'
+          p.form-message= message
+        div
+           label Username:
+           input.form-control(type='text' placeholder='username' name='username' autofocus required)
+        div
+           label Email:
+           input.form-control(type='email' placeholder='bob@example.com' name='email' required)
+        div
+           label Password:
+           input.form-control(type='password' placeholder='Password' name='password' required id='password')
+           input.weak(id='strength' type='text' value='weak' disabled)
+        div
+           label Repeat Password:
+           input.form-control(type='password' placeholder='Password' name='password2' required)
+        div
+           button(class='btn btn-lg btn-primary btn-block' type=submit disabled id='submit') Sign in
+     script(src='/javascripts/check-password.js')

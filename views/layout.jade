@@ -1,0 +1,44 @@
+doctype 5
+html
+  head
+    link(rel='shortcut icon', href='/images/hcpm.png')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='David Heath')
+    title= title
+    link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css", rel="stylesheet")
+    link(href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+    //if lt IE 9
+      script(src='/javascripts/html5shiv.js')
+      script(src='/javascripts/respond.min.js')
+  body
+    div#wrap
+        block main
+    div#footer
+        div.container
+            div.row
+                div(class='col-md-4')
+                    p(class='text-muted credit') 
+                        &copy 2013, 
+                        a(href='mailto:info@hillcitypropertymanagement.com') Hill City Property Management LLC. 
+                div(class='col-md-4')
+                    p
+                        ul(class='nav nav-pills')
+                            li(class='active')
+                                a(href="#") About us
+                            li
+                                a(href='#') 
+                                    i.icon-mobile-phone Support
+                            li
+                                a(href='#')
+                                    i.icon-legal Privacy Policy 
+                div(class='col-md-4')
+                    p(class='text-muted credit')
+                        | Designed by 
+                        a(href='http://www.bearcreekconsulting.net') Bear Creek Consulting LLC.
+    //Placed here for faster page loads
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js")

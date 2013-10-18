@@ -1,0 +1,35 @@
+extends layout
+
+block main
+	div(class='navbar navbar-default navbar-fixed-top')
+		div.container
+			div.navbar-header
+				button(type='button', class='navbar-toggle', data-toggle='collapse', data-target='.navbar-collapse')
+					span(class='icon-bar')
+					span(class='icon-bar')
+					span(class='icon-bar')
+				a.navbar-brand(href='#') #{title}
+			div(class='collapse navbar-collapse')
+				p(class='navbar-text navbar-right')
+						if !user
+							a(href='/login') Login
+						else
+							|Welcome 
+							a(href='/account') #{user.username}
+							|  / 
+							a(href='/logout') Logout
+				ul(class='nav navbar-nav nav-pills')
+					li.active
+						a(href='#') 
+							span(class='glyphicon glyphicon-home') 
+							| Home
+					li
+						a(href='#') Renters
+					li
+						a(href='#') Property Owners
+					li
+						a(href='#') 
+							span(class='glyphicon glyphicon-envelope') Contact
+
+
+	block content
