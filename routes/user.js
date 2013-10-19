@@ -1,6 +1,7 @@
 
 var passport = require('passport'),
-    pass = require('../config/pass');
+    pass = require('../config/pass'),
+    db = require('../config/dbschema');
 
 exports.account = function(req, res) {
   res.render('account', { title: 'VFD',
@@ -8,8 +9,15 @@ exports.account = function(req, res) {
 };
 
 exports.getlogin = function(req, res) {
+ var remembered = false;
+ var username = "";
+ if (req.cookies.remember_me) {
+  remembered = true;
+  username = req.cookies.remember_me;
+ } 
  res.render('login', {
- 	user: req.user, 
+ 	user: username, 
+  remember: remembered,
  	message: req.flash('info') 
  });
 };
@@ -46,6 +54,12 @@ exports.postlogin = function(req, res, next) {
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
+      // issue a remember me cookie if the option was checked
+      if (!req.body.remember_me) { 
+        res.clearCookie('remember_me'); 
+      } else {
+        res.cookie('remember_me', req.user.username, { path: '/', httpOnly: true, maxAge: 604800000 }); // 7 days
+      }
       return res.redirect('/');
     });
   })(req, res, next);

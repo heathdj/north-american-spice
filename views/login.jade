@@ -22,8 +22,14 @@ html
         if message !== 'undefined'
           p.form-message= message
         h2.form-signin-heading Please sign in
-        input.form-control(type='text' placeholder='username' name='username' autofocus)
+        if (remember == false)
+          input.form-control(type='text' placeholder='username' name='username' autofocus)
+        else
+          input.form-control(type='text' value='#{user}' name='username' autofocus)
         input.form-control(type='password' placeholder='Password' name='password')
         label.checkbox Remember me
-           input(type='checkbox' value=remember-me)
+          if (remember == false)
+            input(type='checkbox' name='remember_me' value='false')
+          else
+            input(type='checkbox' name='remember_me' value='true' checked)
         button(class='btn btn-lg btn-primary btn-block' type=submit) Sign in
